@@ -1,50 +1,228 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IdeaSwipe — Evaluate Ideas with a Swipe</title>
-  <meta name="description" content="IdeaSwipe is a creative brainstorming tool that helps you evaluate, develop, and organize startup and business ideas. Integrated with Pinterest for visual inspiration." />
+  <meta name="description"
+    content="IdeaSwipe is a creative brainstorming tool that helps you evaluate, develop, and organize startup and business ideas. Integrated with Pinterest for visual inspiration." />
   <meta property="og:title" content="IdeaSwipe — Evaluate Ideas with a Swipe" />
-  <meta property="og:description" content="Creative brainstorming tool for startup and business ideas with Pinterest visual inspiration integration." />
+  <meta property="og:description"
+    content="Creative brainstorming tool for startup and business ideas with Pinterest visual inspiration integration." />
   <meta property="og:type" content="website" />
   <style>
-    :root { --bg: #0f1117; --surface: #1a1d27; --text: #e4e6f0; --muted: #8b8fa3; --accent: #6c5ce7; --accent2: #a29bfe; --border: #2a2d3a; --success: #00b894; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, rgba(108,92,231,0.12) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(162,155,254,0.08) 0%, transparent 50%); pointer-events: none; }
-    .logo { font-size: 3rem; margin-bottom: 0.5rem; }
-    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #fff; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
-    h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .tagline { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
-    .cta { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; text-decoration: none; padding: 0.85rem 2rem; border-radius: 12px; font-size: 1rem; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
-    .cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(108,92,231,0.45); }
-    .features { padding: 4rem 1rem; max-width: 960px; margin: 0 auto; }
-    .features h2 { text-align: center; font-size: 1.75rem; color: #fff; margin-bottom: 2rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s; }
-    .card:hover { border-color: var(--accent); }
-    .card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
-    .card h3 { color: #fff; font-size: 1.05rem; margin-bottom: 0.4rem; }
-    .card p { color: var(--muted); font-size: 0.9rem; }
-    .pinterest { padding: 4rem 1rem; max-width: 720px; margin: 0 auto; text-align: center; }
-    .pinterest h2 { font-size: 1.5rem; color: #fff; margin-bottom: 1rem; }
-    .pinterest p { color: var(--muted); margin-bottom: 0.75rem; font-size: 0.95rem; }
-    .pinterest-badges { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
-    .badge { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.85rem; font-size: 0.8rem; color: var(--accent2); }
-    footer { border-top: 1px solid var(--border); padding: 2rem 1rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer .links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --text: #e4e6f0;
+      --muted: #8b8fa3;
+      --accent: #6c5ce7;
+      --accent2: #a29bfe;
+      --border: #2a2d3a;
+      --success: #00b894;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(108, 92, 231, 0.12) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(162, 155, 254, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .logo {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(108, 92, 231, 0.45);
+    }
+
+    .features {
+      padding: 4rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+    }
+
+    .card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card h3 {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .pinterest {
+      padding: 4rem 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pinterest h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .pinterest p {
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .pinterest-badges {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.8rem;
+      color: var(--accent2);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer .links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
+
 <body>
   <section class="hero">
     <div class="logo">💡</div>
     <h1><span>IdeaSwipe</span></h1>
-    <p class="tagline">Evaluate, develop, and organize your startup and business ideas with a simple swipe. Find visual inspiration through Pinterest integration.</p>
-    <a class="cta" href="https://t.me/ideaswipe_bot" target="_blank" rel="noopener">
+    <p class="tagline">Evaluate, develop, and organize your startup and business ideas with a simple swipe. Find visual
+      inspiration through Pinterest integration.</p>
+    <a class="cta" href="https://t.me/tg_ideacards_bot/tg_ideacards" target="_blank" rel="noopener">
       Open in Telegram
     </a>
   </section>
@@ -55,7 +233,8 @@
       <div class="card">
         <div class="card-icon">👆</div>
         <h3>Swipe to Evaluate</h3>
-        <p>Swipe right to accept ideas, left to reject, up to postpone. A Tinder-style interface for rapid idea assessment.</p>
+        <p>Swipe right to accept ideas, left to reject, up to postpone. A Tinder-style interface for rapid idea
+          assessment.</p>
       </div>
       <div class="card">
         <div class="card-icon">🎨</div>
@@ -75,7 +254,8 @@
       <div class="card">
         <div class="card-icon">📌</div>
         <h3>Pinterest Integration</h3>
-        <p>Connect your Pinterest account to browse your boards and Pins for visual inspiration within your projects.</p>
+        <p>Connect your Pinterest account to browse your boards and Pins for visual inspiration within your projects.
+        </p>
       </div>
       <div class="card">
         <div class="card-icon">💬</div>
@@ -87,7 +267,9 @@
 
   <section class="pinterest">
     <h2>Pinterest Integration</h2>
-    <p>IdeaSwipe integrates with the official Pinterest API to help users browse their own boards and Pins for visual inspiration. We do not store Pinterest data — the API is called in real-time each time you view your content. All Pinterest content is clearly attributed and links back to its source on Pinterest.</p>
+    <p>IdeaSwipe integrates with the official Pinterest API to help users browse their own boards and Pins for visual
+      inspiration. We do not store Pinterest data — the API is called in real-time each time you view your content. All
+      Pinterest content is clearly attributed and links back to its source on Pinterest.</p>
     <p>Users can disconnect their Pinterest account at any time through their Pinterest settings.</p>
     <div class="pinterest-badges">
       <span class="badge">boards:read</span>
@@ -100,10 +282,12 @@
   <footer>
     <div class="links">
       <a href="/privacy-policy.html">Privacy Policy</a>
-      <a href="https://t.me/ideaswipe_bot" target="_blank" rel="noopener">Telegram Bot</a>
-      <a href="https://policy.pinterest.com/developer-guidelines" target="_blank" rel="noopener">Pinterest Developer Guidelines</a>
+      <a href="https://t.me/tg_ideacards_bot/tg_ideacards" target="_blank" rel="noopener">Telegram Bot</a>
+      <a href="https://policy.pinterest.com/developer-guidelines" target="_blank" rel="noopener">Pinterest Developer
+        Guidelines</a>
     </div>
     <p>&copy; 2026 IdeaSwipe. All rights reserved.</p>
   </footer>
 </body>
+
 </html>
